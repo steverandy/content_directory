@@ -7,10 +7,15 @@ Content Directory is a lightweight replacement of a Content Management System (C
 Content Directory does not require a database. Instead, it uses file system. An entry is a file written in Markdown syntax. You can group related entries in a folder.
 
     - content
+      - home
+        - main.md
+        - features
+          - collaboration.md
+          - manage.md
       - posts
-        - introduction.md
-        - problems.md
-
+        - a-new-blog.md
+        - sortable-stars.md
+  
 ## Writing entries
 
 Entry uses Markdown syntax, but there is an additional rule that every entry must have a metadata declaration on the top. Metadata declaration block uses YAML syntax.
@@ -35,7 +40,7 @@ Entry uses Markdown syntax, but there is an additional rule that every entry mus
 
 Once you have written entries, you can use `ContentDirectory.find` to get the processed entries and render them into views.
 
-`ContentDirectory.find` returns a `Hash` of `ContentDirectory::Entry`. It accepts one argument, which is a path relative to `ContentDirectory.root` (default to `content` directory in Rails root). If path is not specified, `ContentDirectory.find` will find all possible entries.
+`ContentDirectory.find` returns a `Hash` of `ContentDirectory::Entry`. It accepts one argument, which is a path relative to `ContentDirectory.root`. If path is not specified, `ContentDirectory.find` will find all possible entries.
 
     posts = ContentDirectory.find "posts"
 
@@ -44,7 +49,11 @@ You can use metadata to sort posts by date
     posts = ContentDirectory.find("posts").values
     posts.sort_by! { |post| post.metadata["Date"] }
 
-Entry has three important values: `metadata`, `text`, `html`. `metadata` is a `Hash` of parsed metadata block from entry file. `text` is a `String` of original entry text. `html` is a `String` of the result of original text after processed by Redcarpet Markdown parser.
+Entry has three important values: `metadata`, `text`, `html`. 
+
+1. `metadata` is a `Hash` of parsed metadata block from entry file. 
+2. `text` is a `String` of original entry text. 
+3. `html` is a `String` of the result of original text after processed by Redcarpet Markdown parser.
 
     for post in posts
       puts post.metadata["Title"]
