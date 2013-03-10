@@ -55,6 +55,8 @@ Entry has three important values: `metadata`, `text`, `html`.
 2. `text` is a `String` of original entry text. 
 3. `html` is a `String` of the result of original text after processed by Redcarpet Markdown parser.
 
+You can you these three values to render entry to a view.
+
     for post in posts
       puts post.metadata["Title"]
       puts post.text
