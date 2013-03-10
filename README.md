@@ -79,7 +79,15 @@ Or install it yourself as:
 
 ## Configuration
 
+ContentDirectory.root is default to "#{Rails.root}/content" when used in Rails. If you want to use other directory, you can easily change it in the initializer.
+
     ContentDirectory.root = "path/to/content"
+
+## Use with Rails
+
+Content Directory is intended to be used in Rails to extract content from view templates. In this fashion, content can be easily reused and queried.
+
+Create `content` directory in Rails root path. Write entries in this directory. Use `ContentDirectory.find` in the controllers. Render entry `html` or `text` in the templates.
 
 ## Test
 
