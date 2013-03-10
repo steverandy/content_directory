@@ -1,3 +1,6 @@
+require "redcarpet"
+require "yaml"
+
 module ContentDirectory
   class Entry
     attr_reader :path, :text, :metadata
