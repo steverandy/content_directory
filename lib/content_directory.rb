@@ -17,8 +17,12 @@ module ContentDirectory
   end
 
   def self.find(path=nil)
-    entries = Dir.entries "#{root}/#{path}"
     result = {}
+    begin
+      entries = Dir.entries "#{root}/#{path}"
+    rescue Exception => e
+      return nil
+    end
 
     entries.reject! do |entry|
       entry[0] == "." || entry.include?(".") && !entry.include?(".md")
