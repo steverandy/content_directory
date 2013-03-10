@@ -1,6 +1,6 @@
 # Content Directory
 
-Content Directory is a lightweight replacement of a Content Management System (CMS). It provides structure for text based content. It comes with a parser, which allows content entries to have metadata and rich formatting.
+Content Directory is a lightweight replacement of Content Management System. It provides structure for text based content. It comes with a parser, which allows content entries to have metadata and rich formatting.
 
 ## Structure
 
@@ -79,7 +79,7 @@ Or install it yourself as:
 
 ## Configuration
 
-ContentDirectory.root is default to "#{Rails.root}/content" when used in Rails. If you want to use other directory, you can easily change it in the initializer.
+ContentDirectory.root is default to `"#{Rails.root}/content"` when used in Rails. If you want to use other directory, you can easily change it in the initializer.
 
     ContentDirectory.root = "path/to/content"
 
