@@ -19,7 +19,7 @@ class ContentDirectoryTest < ActiveSupport::TestCase
     assert_equal 2, content.length
 
     home = ContentDirectory.find "home"
-    assert_equal 2, home.length
+    assert_equal 3, home.length
     assert_equal 2, home["features"].length
     assert_kind_of ContentDirectory::Entry, home["main"]
   end
