@@ -18,6 +18,9 @@ module ContentDirectory
 
   def self.find(path=nil)
     result = {}
+    valid_entry_extensions = %w(.md .markdown .txt .text)
+    valid_entry_extensions_regex = /.*(#{valid_entry_extensions.join('|\\').prepend('\\')})$/i
+
     begin
       entries = Dir.entries "#{root}/#{path}"
     rescue Exception => e
@@ -25,7 +28,7 @@ module ContentDirectory
     end
 
     entries.reject! do |entry|
-      entry[0] == "." || entry.include?(".") && !entry.include?(".md")
+      entry[0] == "." || entry.include?(".") && !entry.match(valid_entry_extensions_regex)
     end
 
     entries.each do |entry|
