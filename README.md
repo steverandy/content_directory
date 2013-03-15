@@ -4,7 +4,7 @@ Content Directory is a lightweight replacement of Content Management System. It 
 
 ## Structure
 
-Content Directory does not require a database. Instead, it uses file system. An entry is a file written in Markdown syntax. You can group related entries in a folder.
+Content Directory does not require a database. Instead, it uses file system. An entry is a file written in Markdown syntax (with one of the following extensions: .md, .markdown, .txt, .text). You can group related entries in a folder.
 
     - content
       - home
